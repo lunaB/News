@@ -14,6 +14,11 @@ const routes = [
     path: '/tab/:name',
     name: 'tab',
     component: Home
+  },
+  {
+    path: '/article/:articleId',
+    name: 'article',
+    component: Home
   }
   // {
   //   path: '/about',

@@ -2,7 +2,7 @@
   <div class="textSlide">
     <ul :style="{'margin-top': slideMargin}">
       <li v-for="(item, key) in items" :key="key">
-        <router-link :to="{name:'article', params: { id: item.articleId }}">
+        <router-link :to="{name:'article', params: { articleId: item.articleId }}">
           "{{ item.state }}" {{ item.title }}
         </router-link>
       </li>
@@ -24,8 +24,8 @@ export default {
     return {
       interval: null,
       step: 0,
-      slideItem: [],
-      direction: 0
+      direction: 0,
+      h: 45
     }
   },
   mounted() {
@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     slideMargin() {
-      return -1 * (this.step * 45) + 'px'
+      return -1 * (this.step * this.h) + 'px'
     },
   },
   methods: {
@@ -45,10 +45,10 @@ export default {
       this.interval = null;
     },
     next() {
-      if(this.step+1 == this.items.length) {
-        this.direction = 1
-      }else if(this.step == 0) {
+      if(this.step == 0) {
         this.direction = 0
+      }else if(this.step+1 == this.items.length) {
+        this.direction = 1
       }
       this.step += (this.direction == 0 ? 1 : -1)
     }
@@ -58,10 +58,11 @@ export default {
 
 <style scoped lang="scss">
   $h: 45px;
+  $t: 1s;
 
   .textSlide {
-    border-top: 1px solid #333;
-    border-bottom: 2px solid #333;
+    border-top: 2px solid #333;
+    border-bottom: 1px solid #333;
     width: 100%;
     height: $h;
     box-sizing: border-box;
@@ -77,7 +78,7 @@ export default {
       line-height: $h;
       padding: 0 10px;
       font-weight: bold;
-      transition: .4s;
+      transition: $t;
     }
     li:hover {
       color: #000;
