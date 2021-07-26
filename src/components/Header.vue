@@ -1,12 +1,12 @@
 <template>
-  <div class="header">
+  <header class="header">
     <router-link class="bars" to="#"><font-awesome-icon icon="bars" class="bars-icon"/></router-link>
     <HeaderMenu :items="menuItem"/>
     <div class="right" >
       <TextButton text="로그인" bg="#222222"/>
       <TextButton text="회원가입" bg="#1565c0"/>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .header {
+  header {
     width: 100%;
     height: 50px;
     padding: 0 20px;
