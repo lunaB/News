@@ -31,13 +31,17 @@ export default {
   margin: 0;
   padding: 0;
 }
+html, body {
+  height: 100%;
+  width: 100%;
+}
 a {
   text-decoration: none;
   color: inherit;
 }
-
-html, body {
-  height: 100%;
-  width: 100%;
+.container {
+  min-width: 1080px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 </style>
